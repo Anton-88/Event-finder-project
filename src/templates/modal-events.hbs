@@ -1,0 +1,100 @@
+{{#each data._embedded.events}}
+<div class="modal__window">
+    <button type="button" class="modal__close-btn" data-action="modal-close">
+        <svg class="modal__close-icon" width="17" height="17">
+            <use href="./images/svg/close-modal.svg"></use>
+        </svg>
+    </button>
+
+    <div class="centered">
+        <div class="modal__event-header">
+            <img src="{{images.1.url}}" alt="icon" class="modal__event-icon" />
+        </div>
+    </div>
+    <div class="modal__content-wrapper">
+        <div class="modal__event-content-image">
+            <picture>
+                <source srcset="
+                {{images.4.url}} 3x
+                " media="(min-width: 768px)">
+                <source srcset="
+                {{images.7.url}} 3x
+                " media="(min-width: 1280px)">
+            </picture>
+            <img src="{{images.2.url}}" alt="icon" class="modal__event-poster" />
+        </div>
+
+        <div class="modal__event-content">
+            <ul class="modal__event-container">
+                <li class="modal__item-info">
+                    <h2 class="modal__item-title">INFO</h2>
+                    {{#if info}}
+                    <p class="modal__item-content modal__item-content--ellipsis">{{info}}</p>
+                    {{/if}}
+
+                    {{#unless info}}
+                    <p class="modal__item-content">No event information available.</p>
+                    {{/unless}}
+                </li>
+                <li class="modal__item-info">
+                    <h2 class="modal__item-title">WHEN</h2>
+                    <p class="modal__item-content">
+                        {{dates.start.localDate}}
+                        {{dates.start.localTime}}
+                        {{dates.timezone}}
+                    </p>
+                </li>
+                <li class="modal__item-info">
+                    <h2 class="modal__item-title">WHERE</h2>
+                    {{#each _embedded.venues}}
+                    {{#if name}}
+                    <p class="modal__item-content">{{name}}</p>
+                    {{/if}}
+
+                    {{#unless name}}
+                    <p class="modal__item-content">Information about the venue is available on the official Ticketmaster website.</p>
+                    {{/unless}}
+                    {{/each}}
+                </li>
+                <li class="modal__item-info">
+                    <h2 class="modal__item-title">WHO</h2>
+                    <p class="modal__item-content">{{name}}</p>
+                </li>
+                <li class="modal__item-info">
+                    <h2 class="modal__item-title">PRICES</h2>
+                    {{#if priceRanges}}
+                    <div class="centered--left">
+                        <p class="modal__item-content modal__item-content--icon">
+                        <span class="modal__item-content--capitalize">{{priceRanges.0.type}}</span>&nbsp;
+                        <span class="modal__item-content--bold">{{priceRanges.0.min}}-{{priceRanges.0.max}}</span>&nbsp;
+                        {{priceRanges.0.currency}}
+                        </p>
+                    </div>
+                    {{/if}}
+                    {{#unless priceRanges}}
+                    <div class="centered--left">
+                        <p class="modal__item-content">Ticket prices are available on the Ticketmaster website.</p>
+                    </div>
+                    {{/unless}}
+                    <a href="{{url}}" target="_blank" rel="noopener noreferer" class="modal__btn modal__btn--bottom-top link" data-action="buy-cheap">
+                         BUY TICKETS
+                    </a>
+
+                    <div class="centered--left centered--left--vip">
+                        <p class="modal__item-content modal__item-content--icon" id="vip">VIP {{eventHighPricesContent}} {{currency}}</p>
+
+                        <a href="{{url}}" target="_blank" rel="noopener noreferer" class="modal__btn modal__btn--top link" data-action="buy-expensive">
+                        BUY TICKETS
+                        </a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+        <div class="modal__more-btn-container">
+            <a href="{{_embedded.attractions.0.externalLinks.homepage.0.url}}" target="_blank" rel="noopener noreferer"
+                class="modal__more-btn link">MORE FROM THIS AUTHOR</a>
+        </div>
+   
+</div>
+{{/each}}

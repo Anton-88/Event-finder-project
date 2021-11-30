@@ -1,0 +1,182 @@
+// .events > .container {
+//   padding: 0;
+// }
+
+.events {
+  margin-bottom: 60px;
+  background-color: transparent;
+  @media screen and (max-width: 1280px) {
+    // padding: 0;
+    padding-top: 9px;
+  }
+  @media screen and (min-width: 1280px) {
+    padding-top: 13px;
+
+    margin-bottom: 80px;
+  }
+}
+
+.events__el {
+  transition: box-shadow linear 250ms, border-radius linear 250ms;
+  --grid-item: 2;
+  display: block;
+  width: 128px;
+  position: relative;
+  // cursor: pointer;
+
+  @media (min-width: 768px) {
+    --grid-item: 3;
+    width: 194px;
+  }
+
+  @media (min-width: 1280px) {
+    --grid-item: 4;
+  }
+}
+
+.events__el::after {
+  content: ' ';
+  position: absolute;
+  width: 108px;
+  height: 101px;
+  right: -9px;
+  top: -9px;
+  border: 1px solid rgba(220, 86, 197, 0.3);
+  border-radius: 50px 0px;
+
+  @media (min-width: 768px) {
+    width: 153px;
+    height: 143px;
+    right: -13px;
+    top: -13px;
+  }
+}
+
+.events__el:hover {
+  border-radius: 45px 0;
+  box-shadow: 0 0 10px #dc56c5, 0 0 20px #dc56c5, 0 0 80px #dc56c5;
+}
+.events__meta-title {
+  transition: color linear 250ms;
+}
+.events__el:hover .events__meta-title {
+  color: white;
+}
+
+.events__el-image > img {
+  position: relative;
+  z-index: 100;
+  height: 161px;
+  width: 128px;
+  object-fit: cover;
+  border-radius: 50px 0px;
+
+  @media (min-width: 768px) {
+    height: 227px;
+    width: 180px;
+  }
+}
+
+.events__meta {
+  position: relative;
+  z-index: 100;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 5px;
+}
+
+.events__meta-title {
+  margin-bottom: 5px;
+  text-align: center;
+  color: #dc56c5;
+  font-size: 14px;
+  line-height: 17px;
+  cursor: pointer;
+
+  @media (min-width: 768px) {
+    font-size: 16px;
+    line-height: 20px;
+  }
+}
+
+.events__meta-date {
+  margin-right: auto;
+  margin-left: auto;
+  margin-bottom: 5px;
+  color: white;
+  text-align: center;
+  font-size: 14px;
+  line-height: 17px;
+  font-style: normal;
+  font-weight: normal;
+
+  @media (min-width: 768px) {
+    font-size: 16px;
+    line-height: 20px;
+  }
+}
+
+.events__meta-place {
+  margin: 0 auto;
+  text-align: center;
+  overflow-wrap: break-word;
+  max-width: 100px;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 15px;
+  color: white;
+
+  @media (min-width: 768px) {
+    font-size: 14px;
+    line-height: 17px;
+    max-width: 130px;
+  }
+}
+
+.events__meta-place::before {
+  content: url('../images/svg/place-mark.svg');
+  fill: white;
+  display: inline-block;
+  width: 7px;
+  height: 10px;
+  margin-right: 3px;
+}
+
+.events__gallery {
+  display: flex;
+  flex-wrap: wrap;
+  padding-left: 0;
+  min-height: 100vh;
+}
+
+.events__el {
+  animation-name: show;
+  animation-duration: 1500ms;
+  animation-timing-function: linear;
+}
+@keyframes show {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+.events__el-image {
+  animation-name: show-img;
+  animation-duration: 2000ms;
+  animation-timing-function: linear;
+}
+@keyframes show-img {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
