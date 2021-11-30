@@ -3,10 +3,10 @@
   "version": "1.1.0",
   "description": "",
   "main": "index.js",
-  "homepage": "https://Anton-88.github.io/Event-finder-project",
+  "homepage": "https://Anton-88.github.io/event-finder-project",
   "scripts": {
     "dev": "parcel src/*.html",
-    "build": "parcel build src/*.html --public-url /Event-finder-project/",
+    "build": "parcel build src/*.html --public-url /event-finder-project/",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build"
   },
