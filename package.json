@@ -33,6 +33,7 @@
     "country-list": "^2.2.0",
     "datalist-css": "^1.0.0",
     "get-all-country-info": "^1.1.6",
+    "gh-pages": "^3.2.3",
     "js": "^0.1.0",
     "lodash.debounce": "^4.0.8",
     "lodash.throttle": "^4.1.1",
